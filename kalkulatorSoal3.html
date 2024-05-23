@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Sederhana</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Kalkulator Sederhana</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" id="input" class="form-control" placeholder="Masukkan angka" readonly>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-secondary btn-block" onclick="clearInput()">Clear</button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-1">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('+')">+</button>
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('-')">-</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-primary btn-block" onclick="appendToInput('*')">*</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-primary btn-block" onclick="appendToInput('/')">/</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-danger btn-block" onclick="backspace()">Del</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-success btn-block" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('7')">7</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('8')">8</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-block" onclick="appendToInput('9')">9</button>
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('4')">4</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('5')">5</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-block" onclick="appendToInput('6')">6</button>
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('1')">1</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('2')">2</button>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary btn-block" onclick="appendToInput('3')">3</button>
+      </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('0')">0</button>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary btn-block" onclick="appendToInput('.')">.</button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    
+  </div>
+</div>
+
+<script>
+function appendToInput(value) {
+  document.getElementById('input').value += value;
+}
+
+function clearInput() {
+  document.getElementById('input').value = '';
+}
+
+function backspace() {
+  var input = document.getElementById('input').value;
+  document.getElementById('input').value = input.slice(0, -1);
+}
+
+function calculate() {
+  var input = document.getElementById('input').value;
+  try {
+    var result = eval(input);
+    document.getElementById('input').value = result;
+  } catch (error) {
+    document.getElementById('input').value = 'Error';
+  }
+}
+</script>
+
+</body>
+</html>
